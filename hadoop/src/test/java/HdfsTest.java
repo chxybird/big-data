@@ -1,11 +1,17 @@
 import com.bird.HadoopApp;
+import com.bird.utils.HdfsUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileStatus;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.hdfs.protocol.DatanodeInfo;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
+import java.net.URI;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
@@ -16,6 +22,7 @@ import java.util.concurrent.TimeUnit;
  * @Description
  */
 @SpringBootTest(classes = HadoopApp.class)
+@Slf4j
 public class HdfsTest {
 
     /**
@@ -27,10 +34,8 @@ public class HdfsTest {
     void test1() throws Exception {
         //配置客户端参数
         Configuration configuration = new Configuration();
-        configuration.set("fs.defaultFS", "hdfs://192.168.78.134:8020");
-        configuration.set("HADOOP_USER_NAME", "root");
         //创建文件系统客户端对象
-        FileSystem fileSystem = FileSystem.get(configuration);
+        FileSystem fileSystem = FileSystem.get(new URI("hdfs://192.168.78.134:8020"),configuration,"root");
         //操作HDFS
         boolean exists = fileSystem.exists(new Path("/bird"));
 
@@ -83,10 +88,11 @@ public class HdfsTest {
     /**
      * @Author 李璞
      * @Date 2022/1/5 15:58
-     * @Description 异常测试
+     * @Description 工具类测试
      */
     @Test
-    void exceptionTest() {
-
+    void utilTest() throws Exception {
+        log.info("info");
+        log.debug("debug");
     }
 }
