@@ -17,13 +17,10 @@ import java.util.concurrent.TimeUnit;
  * @Description Storm中Spout将数据导入并给系统内的Bolt处理
  */
 public class Spout extends BaseRichSpout {
-
     private SpoutOutputCollector collector;
     private InputStream inputStream;
     private BufferedReader bufferedReader;
     private String temp;
-
-
     /**
      * @Author 李璞
      * @Date 2022/1/14 14:54
@@ -34,7 +31,9 @@ public class Spout extends BaseRichSpout {
         this.collector = spoutOutputCollector;
         //设置数据源
         try {
-            inputStream = new FileInputStream(new File("/home/bird/storm", "log.txt"));
+//            inputStream = new FileInputStream(new File("/home/bird/storm", "log.txt"));
+            inputStream = new FileInputStream(new File(" F:\\log", "log.txt"));
+
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,7 +57,6 @@ public class Spout extends BaseRichSpout {
             e.printStackTrace();
         }
     }
-
     /**
      * @Author 李璞
      * @Date 2022/1/14 14:54

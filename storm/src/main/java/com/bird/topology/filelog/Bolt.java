@@ -27,6 +27,7 @@ public class Bolt extends BaseRichBolt {
         this.collector=outputCollector;
     }
 
+
     /**
      * @Author 李璞
      * @Date 2022/1/14 15:56

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>storm</artifactId>
+    <artifactId>kafka-connect</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -17,39 +17,12 @@
     </properties>
 
     <dependencies>
-        <!-- Storm依赖 -->
         <dependency>
-            <groupId>org.apache.storm</groupId>
-            <artifactId>storm-core</artifactId>
-            <version>2.3.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-slf4j-impl</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>provided</scope>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>connect-api</artifactId>
+            <version>3.0.0</version>
         </dependency>
-        <!-- Kafka依赖 -->
-        <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
-        </dependency>
-
-        <!-- Storm 整合Kafka依赖 -->
-        <dependency>
-            <groupId>org.apache.storm</groupId>
-            <artifactId>storm-kafka-client</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-
-        <!--        <dependency>-->
-        <!--            <groupId>org.apache.storm</groupId>-->
-        <!--            <artifactId>storm-client</artifactId>-->
-        <!--            <version>2.3.0</version>-->
-        <!--        </dependency>-->
     </dependencies>
-
 
     <build>
         <plugins>
@@ -72,6 +45,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>

@@ -19,6 +19,7 @@
         <module>flume</module>
         <module>hadoop</module>
         <module>storm</module>
+        <module>kafka-connect</module>
     </modules>
 
     <properties>
@@ -44,5 +45,6 @@
             <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
+
 
 </project>

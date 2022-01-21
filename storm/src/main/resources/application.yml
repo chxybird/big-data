@@ -1,0 +1,55 @@
+#kafka相关配置
+spring:
+  kafka:
+    #kafka集群地址
+    bootstrap-servers: 192.168.78.134:9092
+    #生产者配置
+    producer:
+      #消息重发次数,默认Integer.MAX_VALUE
+      retries: 3
+      #设置压缩
+      compression-type: gzip
+      #缓冲池大小,默认32MB
+      buffer-memory: 33554432
+      #批量大小默认16kb
+      batch-size: 16384
+      #key value 序列化配置
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      #设置ack机制
+      acks: 1
+      properties:
+        #批量发送间隔(批量大小没有达到也会发送) 单位毫秒 设置为0批量其实没有任何意义
+        linger:
+          ms: 300
+    #消费者配置
+    consumer:
+      #配置默认的消费者组
+      group-id: default-group
+      #配置是否自动提交offset
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      #一次最大拉取的消息数量
+      max-poll-records: 50
+      #序列化配置,可以不配置
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      #心跳时间 5秒 单位毫秒
+      heartbeat-interval: 5000
+      properties:
+        #批量拉取间隔时间 单位毫秒 20秒
+        max:
+          poll:
+            interval:
+              ms: 20000
+    #      fetch-max-wait: 10000
+    #      fetch-min-size: 2000000
+    listener:
+      #手动调用Acknowledgment.acknowledge()后立即提交 只有开启手动提交此配置生效
+      ack-mode: manual_immediate
+      #每个消费者的并发
+      concurrency: 2
+      #当监听的topic不存在时 忽略报错
+      missing-topics-fatal: false
+      #设置kafka的消费方式 默认单条 设置为批量
+      type: batch
