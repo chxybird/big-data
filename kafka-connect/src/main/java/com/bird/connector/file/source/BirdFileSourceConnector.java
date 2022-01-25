@@ -41,7 +41,7 @@ public class BirdFileSourceConnector extends SourceConnector {
      */
     @Override
     public void start(Map<String, String> map) {
-        //connector的配置文件会被自动读取到此map中
+        //connector的source配置文件会被自动读取到此map中
         fileUrl = map.get(FILE_URL_KEY);
         topic = map.get(TOPIC_KEY);
         if (fileUrl == null || fileUrl.isEmpty()) {

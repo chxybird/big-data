@@ -32,14 +32,14 @@ public class Spout extends BaseRichSpout {
         //设置数据源
         try {
 //            inputStream = new FileInputStream(new File("/home/bird/storm", "log.txt"));
-            inputStream = new FileInputStream(new File(" F:\\log", "log.txt"));
+            inputStream = new FileInputStream(new File("F:\\log", "log.txt"));
 
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+
 
     /**
      * @Author 李璞
@@ -51,7 +51,7 @@ public class Spout extends BaseRichSpout {
         try {
             while ((temp = bufferedReader.readLine()) != null) {
                 collector.emit(new Values(temp));
-                TimeUnit.SECONDS.sleep(20);
+                TimeUnit.SECONDS.sleep(2);
             }
         } catch (Exception e) {
             e.printStackTrace();

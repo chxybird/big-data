@@ -58,23 +58,26 @@ public class StormTest {
         brandList.add("别克");
         brandList.add("马自达");
         brandList.add("本田");
-        Random random=new Random();
-        int index = random.nextInt(11) % brandList.size();
-        CarDTO carDTO=new CarDTO();
-        carDTO.setId(UUID.randomUUID().toString().replace("-"," "));
-        carDTO.setSpeed(String.valueOf(random.nextInt(220)));
-        carDTO.setBrand(brandList.get(index));
-        String jsonData = JsonUtils.entityToJson(carDTO);
-        //采用异步调用的方式
-        kafkaTemplate.send("topic-storm", "car-data", jsonData).addCallback((success) -> {
-            //发送成功
-            log.info("发送成功!!!");
-        }, (failure) -> {
-            //获取失败信息
-            String message = failure.getMessage();
-            //TODO 进行相关补偿操作 例如失败消息入库、进入死信队列等等
-            log.error("消息发送失败,失败的消息为:{}",jsonData);
-            log.error("失败的原因为:{}",message);
-        });
+        Random random = new Random();
+        for (int i = 0; i < 10; i++) {
+            int index = random.nextInt(11) % brandList.size();
+            CarDTO carDTO = new CarDTO();
+            carDTO.setId(UUID.randomUUID().toString().replace("-", " "));
+            carDTO.setSpeed(String.valueOf(random.nextInt(220)));
+            carDTO.setBrand(brandList.get(index));
+            String jsonData = JsonUtils.entityToJson(carDTO);
+            //采用异步调用的方式
+            kafkaTemplate.send("topic-storm", "car-data", jsonData).addCallback((success) -> {
+                //发送成功
+                log.info("发送成功!!!");
+            }, (failure) -> {
+                //获取失败信息
+                String message = failure.getMessage();
+                //TODO 进行相关补偿操作 例如失败消息入库、进入死信队列等等
+                log.error("消息发送失败,失败的消息为:{}", jsonData);
+                log.error("失败的原因为:{}", message);
+            });
+        }
+
     }
 }

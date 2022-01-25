@@ -28,10 +28,10 @@ public class Topology {
         //配置worker的数量
         config.setNumWorkers(2);
         //集群提交
-        StormSubmitter.submitTopology("file-log-topology",config,topology);
+//        StormSubmitter.submitTopology("file-log-topology",config,topology);
 
-//        LocalCluster local = new LocalCluster();
-//        local.submitTopology("file-log-topology", config, topology);
+        LocalCluster local = new LocalCluster();
+        local.submitTopology("file-log-topology", config, topology);
     }
 
 }

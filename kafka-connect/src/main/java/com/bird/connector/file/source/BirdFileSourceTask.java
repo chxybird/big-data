@@ -35,7 +35,7 @@ public class BirdFileSourceTask extends SourceTask {
     @Override
     public void start(Map<String, String> map) {
         try {
-            //connector的配置信息会被传递到这个形参中 通过taskConfigs传递过来的
+            //connector的配置信息会被传递到这个形参中
             //加载数据文件
             inputStream = new FileInputStream(map.get(BirdFileSourceConnector.FILE_URL_KEY));
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
