@@ -1,0 +1,3 @@
+#WebService路径前缀
+cxf:
+  path: /services

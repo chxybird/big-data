@@ -20,6 +20,7 @@
         <module>hadoop</module>
         <module>storm</module>
         <module>kafka-connect</module>
+        <module>web-service</module>
     </modules>
 
     <properties>
