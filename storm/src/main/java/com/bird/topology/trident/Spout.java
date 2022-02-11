@@ -1,4 +1,4 @@
-package com.bird.topology.filelog;
+package com.bird.topology.trident;
 
 import org.apache.storm.spout.SpoutOutputCollector;
 import org.apache.storm.task.TopologyContext;
@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @Author 李璞
- * @Date 2022/1/14 14:18
- * @Description Storm中Spout将数据导入并给系统内的Bolt处理
+ * @Date 2022/2/11 14:04
+ * @Description
  */
 public class Spout extends BaseRichSpout {
     private SpoutOutputCollector collector;
