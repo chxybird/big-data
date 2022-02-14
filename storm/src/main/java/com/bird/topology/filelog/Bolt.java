@@ -22,15 +22,11 @@ public class Bolt extends BaseRichBolt {
      * @Date 2022/1/14 15:55
      * @Description Bolt启动前运行的代码
      */
-//    @Override
-//    public void prepare(Map<String, Object> map, TopologyContext topologyContext, OutputCollector outputCollector) {
-//        this.collector=outputCollector;
-//    }
-
     @Override
-    public void prepare(Map map, TopologyContext topologyContext, OutputCollector outputCollector) {
+    public void prepare(Map<String, Object> map, TopologyContext topologyContext, OutputCollector outputCollector) {
         this.collector=outputCollector;
     }
+
 
     /**
      * @Author 李璞

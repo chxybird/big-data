@@ -29,6 +29,11 @@ public class SpringContextUtils implements ApplicationContextAware {
         return context.getBean(name);
     }
 
+    /**
+     * @Author 李璞
+     * @Date 2022/2/14 10:33
+     * @Description 获取上下文
+     */
     public static ApplicationContext getContext(){
         return context;
     }

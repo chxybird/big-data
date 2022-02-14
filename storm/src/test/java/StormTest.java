@@ -78,6 +78,5 @@ public class StormTest {
                 log.error("失败的原因为:{}", message);
             });
         }
-
     }
 }
