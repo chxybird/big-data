@@ -16,11 +16,6 @@ import org.apache.storm.topology.TopologyBuilder;
  */
 public class Topology {
     public static void main(String[] args) throws Exception {
-        /**
-         * 使用LinearDRPCTopologyBuilder,对于第一个bolt，其输入为Fields("request", "args");
-         * 对最后一个bolt要求输出字段为new Fields("id", "result");
-         * 对于非最后一个bolt要求输出字段的第一个字段为id,即requestId,方便CoordinatedBolt进行追踪统计,确认bolt是否成功接收上游bolt发送的所有tuple;
-         */
         LinearDRPCTopologyBuilder builder = new LinearDRPCTopologyBuilder("bird");
         builder.addBolt(new Bolt(), 1);
         Config config = new Config();
@@ -40,9 +35,6 @@ public class Topology {
 //        cluster.submitTopology("drpc",config,builder.createTopology());
 //        String execute = drpc.execute("bird", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 //        System.out.println(execute);
-
-
-
 
     }
 }
