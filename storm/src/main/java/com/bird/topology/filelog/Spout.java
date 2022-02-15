@@ -51,7 +51,7 @@ public class Spout extends BaseRichSpout {
         try {
             while ((temp = bufferedReader.readLine()) != null) {
                 collector.emit(new Values(temp));
-                TimeUnit.SECONDS.sleep(2);
+//                TimeUnit.SECONDS.sleep(2);
             }
         } catch (Exception e) {
             e.printStackTrace();

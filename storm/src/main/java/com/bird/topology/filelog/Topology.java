@@ -17,8 +17,7 @@ public class Topology {
         //创建Topology
         TopologyBuilder builder = new TopologyBuilder();
         //设置Spout 每个worker一个executor运行 每个executor一个task
-        builder.setSpout("file-log-spout", new Spout(), 1)
-                .setNumTasks(1);
+        builder.setSpout("file-log-spout", new Spout(), 1);
         //设置Bolt 每个worker一个executor运行 每个executor一个task
         builder.setBolt("file-log-bolt", new Bolt(), 1)
                 .setNumTasks(1)
