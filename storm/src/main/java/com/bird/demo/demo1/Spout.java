@@ -25,6 +25,7 @@ public class Spout extends BaseRichSpout {
         try {
             //读取文件到流中
             InputStream inputStream = new FileInputStream(new File("F:\\log", "input.txt"));
+//            InputStream inputStream = new FileInputStream(new File("/home/bird/storm", "log.txt"));
             bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         } catch (Exception e) {
             e.printStackTrace();
