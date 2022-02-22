@@ -22,6 +22,7 @@
         <module>kafka-connect</module>
         <module>web-service</module>
         <module>spark</module>
+        <module>flink</module>
     </modules>
 
     <properties>
