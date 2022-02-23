@@ -21,6 +21,7 @@
         <module>storm</module>
         <module>kafka-connect</module>
         <module>web-service</module>
+        <module>netty</module>
         <module>spark</module>
         <module>flink</module>
     </modules>
